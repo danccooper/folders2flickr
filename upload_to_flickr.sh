@@ -1,0 +1,1 @@
+docker run -it -v /home/dan/uploadr.ini:/uploadr.ini -v /home/dan/.flickrToken:/.flickrToken -v /home/dan/.flickr_history:/.flickr_history -v /media/data/dan/pictures:/data/dan/pictures danccooper/folders2flickr:latest
