@@ -18,7 +18,10 @@ jobs:
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
     - name: Build the Docker image
       run: docker build . --tag danccooper/folders2flickr:latest
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +%s)"
     - name: Tag as latest
-      run: docker tag danccooper/folders2flickr:latest danccooper/folders2flickr:$(date +%s)
+      run: docker tag danccooper/folders2flickr:latest danccooper/folders2flickr:${{ steps.date.outputs.date }}
     - name: Push images
-      run: docker push danccooper/folders2flickr:$(date +%s) && docker push danccooper/folders2flickr:latest
+      run: docker push danccooper/folders2flickr:${{ steps.date.outputs.date }} && docker push danccooper/folders2flickr:latest
