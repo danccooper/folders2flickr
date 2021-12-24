@@ -12,4 +12,4 @@ RUN sed -i 's/base + "upload\/"/"https:\/\/up.flickr.com\/services\/upload\/"/g'
 COPY folders2flickr fix_pics.sh ./
 RUN chmod +x folders2flickr fix_pics.sh
 
-ENTRYPOINT ["fix_pics.sh"]
+ENTRYPOINT ["/bin/bash", "fix_pics.sh"]
