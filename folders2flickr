@@ -1,0 +1,10 @@
+#!/usr/local/bin/python
+"""
+Command line folders2flickr interface
+"""
+
+try:
+    import f2flickr.uploadr
+    f2flickr.uploadr.main()
+except IOError, ex:
+    print ex
